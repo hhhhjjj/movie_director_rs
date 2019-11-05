@@ -15,7 +15,7 @@ driver = webdriver.Chrome(executable_path=r"C:\Program Files (x86)\Google\Chrome
 for director in directors:
 	# 设置想要下载的导演 数据集
 	# 写CSV文件
-	file_name = './movie.csv'
+	file_name = './' + director + '.csv'
 	base_url = 'https://movie.douban.com/subject_search?search_text='+director+'&cat=1002&start='
 	# 这豆瓣居然把我IP封了
 	# 追加写
@@ -49,8 +49,8 @@ for director in directors:
 				# 将第一个字段设置为电影名称
 				names[0] = movie.text
 				flags.append(movie.text)
-				# 把电影导演的名字也加上
-				names.append(director)
+				# # 把电影导演的名字也加上
+				# names.append(director)
 				csv_write.writerow(names)
 		print('OK') # 代表这页数据下载成功
 		time.sleep(1)
